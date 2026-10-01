@@ -1,0 +1,27 @@
+balance = 5000
+menu = ["Balance Inquiry", "Deposit", "Withdrawal", "Exit"]
+while True:
+    print("\n--- ATM MENU ---")
+    for i in range(len(menu)):
+        print(i + 1, ".", menu[i])
+    choice = int(input("Enter choice: "))
+    if choice == 1:
+        print("Balance:", balance)
+    elif choice == 2:
+        amount = int(input("Enter deposit amount: "))
+        balance += amount
+        print("Deposit Successful")
+        print("Balance:", balance)
+    elif choice == 3:
+        amount = int(input("Enter withdrawal amount: "))
+        if amount <= balance:
+            balance -= amount
+            print("Withdrawal Successful")
+            print("Balance:", balance)
+        else:
+            print("Insufficient Balance")
+    elif choice == 4:
+        print("Thank You!")
+        break
+    else:
+        print("Invalid Choice")

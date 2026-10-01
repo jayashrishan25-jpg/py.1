@@ -1,0 +1,13 @@
+import string
+password = input("Enter password: ")
+if len(password) >= 8 and any(c.isupper() for c in password) and any(c.isdigit() for c in password):
+    print("Strong Password")
+    encrypted = ""
+    for c in password:
+        encrypted += chr(ord(c) + 3)
+    with open("password.txt", "w") as file:
+        file.write(encrypted)
+    print("Encrypted Password:", encrypted)
+    print("Saved successfully")
+else:
+    print("Weak Password")

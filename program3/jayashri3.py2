@@ -1,0 +1,16 @@
+def check_password(password):
+    if len(password) >= 8 and any(c.isupper() for c in password) and any(c.isdigit() for c in password):
+        return True
+    return False
+def encrypt(password):
+    return "".join(chr(ord(c) + 3) for c in password)
+password = input("Enter password: ")
+if check_password(password):
+    print("Strong Password")
+    encrypted = encrypt(password)
+    with open("password.txt", "w") as file:
+        file.write(encrypted)
+    print("Encrypted Password:", encrypted)
+    print("Data stored in file")
+else:
+    print("Weak Password")
